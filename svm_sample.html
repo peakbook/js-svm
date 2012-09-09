@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+	<head>
+		<title>SVM Demo</title>
+		<link href="assets/svm_sample.css" rel="stylesheet"/>
+		<script src="assets/easeljs-0.4.2.min.js"></script>
+		<script src="assets/movieclip-0.4.1.min.js"></script>
+		<script src="assets/BoxBlurFilter.js"></script>
+		<script src="assets/SVM.js"></script>
+		<script src="assets/TrainingSignal.js"></script>
+		<script src="assets/svm_sample.js"></script>
+	</head>
+	<body onload="init()" >
+		<center>
+			<header id="header" class="SVM" >
+			<h1>SVM Demo</h1>
+			<p>This is a simple demonstration of <a href="http://en.wikipedia.org/wiki/Support_vector_machine">Support Vector Machine(SVM)</a> on JavaScript using <a href="http://www.createjs.com/#!/EaselJS">EaselJS</a>. </p>
+			</header>
+
+			<canvas id="myCanvas" width="400" height="400"></canvas>
+			<br>
+			<form>
+				<input type="radio" id="coord_type_a" name="coord_type" value="a" checked onChange="pointLabel_Changed()"><font color="#0000FF">■</font>
+				<input type="radio" id="coord_type_b" name="coord_type" value="b" onChange="pointLabel_Changed()"><font color="#FF0000">■</font>
+				<input type="button" id="button_plot" value="Plot" onclick="plotTestData()">
+				<input type="button" id="button_learn" value="Learn" onclick="learning()" disabled="true">
+				<input type="button" id="button_clear" value="Clear" onclick="clearCoords()">
+				Kernel<select id="kernel_type" onChange="kernelType_Changed()">
+					<option value="Linear">Linear</option>
+					<option value="Gaussian">Gaussian</option>
+				</select>
+				<br>
+				C<input type="number" id="param_C" min="1" max="0xFFFFFFFF" step="1" value="2000" onChange="paramC_Changed()">
+				gamma<input type="number" id="param_gamma" min="1" max="200" step="1" value="25" onChange="paramGamma_Changed()">
+			</form>
+		</center>
+	</body>
+</html>
+
